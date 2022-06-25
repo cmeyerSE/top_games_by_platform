@@ -1,23 +1,24 @@
 class TopGamesByPlatform::CLI
     def call
-        puts "\nWelcome! Let's find your next game!\n"
+        puts "\n ------------------------------------- \n"
+        puts "| Welcome! Let's find your next game! |"
+        puts " ------------------------------------- "
         get_platforms
         list_platforms
         get_user_platform
-        #get_games_for(platform)
-        #list_games
     end
 
     def get_platforms
-        #to be scraped instead
-        @platforms = ['Xbox X/S', 'PS5', 'PC', 'Switch']
+        TopGamesByPlatform::Platform.new("ps5")
+        TopGamesByPlatform::Platform.new("ps4")
+        @platforms = TopGamesByPlatform::Platform.all
     end
 
     def list_platforms
         puts "\nChoose your platform number:\n"
         # list platforms
         @platforms.each.with_index(1) do |platform, index|
-            puts "\n#{index}. #{platform}\n"
+            puts "#{index}. #{platform.name}"
         end
     end
 
@@ -32,7 +33,7 @@ class TopGamesByPlatform::CLI
 
     def show_games_for(chosen_platform)
         platform = @platforms[chosen_platform - 1]
-        puts "Top games for #{platform}:"
+        puts "\nTop games for #{platform}:\n"
         ## to implement
         #TopGamesByPlatform::Game.all.each.with_index(1) do | game |
         #    puts game.name
