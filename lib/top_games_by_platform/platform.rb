@@ -1,6 +1,6 @@
 class TopGamesByPlatform::Platform
+    attr_accessor :name, :games
     @@all = []
-    attr_accessor :name
 
     def initialize(name)
         @name = name
@@ -8,6 +8,7 @@ class TopGamesByPlatform::Platform
     end
 
     def self.all
+        TopGamesByPlatform::Scraper.scrape_platforms if @@all.empty?
         @@all
     end
 

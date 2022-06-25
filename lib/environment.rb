@@ -8,6 +8,7 @@ require_relative "top_games_by_platform/scraper"
 require 'pry'
 require 'nokogiri'
 require 'open-uri'
+require 'colorize'
 
 
 module TopGamesByPlatform
