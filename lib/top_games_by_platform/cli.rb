@@ -32,11 +32,10 @@ class TopGamesByPlatform::CLI
 
     def show_games_for(chosen_platform)
         platform = @platforms[chosen_platform - 1]
-        puts "\nTop games for #{platform.name}:\n"
-        ## to implement
-        #TopGamesByPlatform::Game.all.each.with_index(1) do | game |
-        #    puts game.name
-        #end
-        #get_games
+        platform.get_games
+        puts "\nTop games for #{platform.name}:\n".green
+        platform.games.each.with_index(1)  do | game, index |
+            puts "#{index}. #{game.name}".yellow
+        end
     end
 end

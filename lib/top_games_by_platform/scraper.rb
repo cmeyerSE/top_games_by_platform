@@ -9,4 +9,13 @@ class TopGamesByPlatform::Scraper
             TopGamesByPlatform::Platform.new(name)
         end
     end
+
+    def self.scrape_games(platform)
+        url = "https://opencritic.com/browse/#{platform.ref}"
+        page = Nokogiri::HTML(open(url)) 
+
+        games = page.css("div._ngcontent-serverapp-c78 div.row.no-gutters.py-2.game-row.align-items-center")
+
+
+    end
 end

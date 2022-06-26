@@ -4,6 +4,7 @@ require_relative "top_games_by_platform/version"
 require_relative "top_games_by_platform/cli"
 require_relative "top_games_by_platform/platform"
 require_relative "top_games_by_platform/scraper"
+require_relative "top_games_by_platform/game"
 
 require 'pry'
 require 'nokogiri'
