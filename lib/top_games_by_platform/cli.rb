@@ -3,9 +3,14 @@ class TopGamesByPlatform::CLI
         puts " ------------------------------------- ".red
         puts "| Welcome! Let's find your next game! |".blue
         puts " ------------------------------------- ".red
-        get_platforms
-        list_platforms
-        get_user_platform
+        @input = ""
+        until @input == "exit"
+            get_platforms
+            list_platforms
+            get_user_platform
+            what_next
+        end
+        goodbye
     end
 
     def get_platforms
@@ -37,6 +42,14 @@ class TopGamesByPlatform::CLI
         platform.games.each.with_index(1)  do | game, index |
             puts "#{index}. #{game.name}".yellow
         end
-        #get_user_game(platform)
+    end
+
+    def what_next
+        puts "Wanna look at another platform? Type 'exit' to exit or hit any key to see another platform!".red
+        @input = gets.strip
+    end
+
+    def goodbye
+        puts "I hope you found the game for you!".blue
     end
 end

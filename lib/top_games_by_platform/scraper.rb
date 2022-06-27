@@ -22,6 +22,4 @@ class TopGamesByPlatform::Scraper
             TopGamesByPlatform::Game.new(title, platform, url)
         end
     end
-
-
 end
