@@ -1,9 +1,10 @@
 class TopGamesByPlatform::Platform
-    attr_accessor :name, :games
+    attr_accessor :name, :ref, :games
     @@all = []
 
-    def initialize(name)
+    def initialize(name, ref)
         @name = name
+        @ref = ref
         @games = []
         save
     end

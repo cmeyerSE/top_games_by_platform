@@ -5,7 +5,6 @@
 - user is asked for a platform
 - user sees games for platform
 - user picks a game
-- user see game summary
 
 Classes
 - Game

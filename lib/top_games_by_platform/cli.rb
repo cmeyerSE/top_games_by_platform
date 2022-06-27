@@ -15,7 +15,6 @@ class TopGamesByPlatform::CLI
     def list_platforms
         puts "\nChoose your platform number:\n".green
         puts "------------------------".yellow
-        # list platforms
         @platforms.each.with_index(1) do |platform, index|
             puts "| #{index}. #{platform.name}".yellow
         end
@@ -33,9 +32,11 @@ class TopGamesByPlatform::CLI
     def show_games_for(chosen_platform)
         platform = @platforms[chosen_platform - 1]
         platform.get_games
+        #binding.pry
         puts "\nTop games for #{platform.name}:\n".green
         platform.games.each.with_index(1)  do | game, index |
             puts "#{index}. #{game.name}".yellow
         end
+        #get_user_game(platform)
     end
 end
